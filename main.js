@@ -30,3 +30,43 @@ window.addEventListener('scroll', function () {
     header.classList.remove('scroll')
   }
 })
+
+/* Testimonials carousel*/
+const swiper = new Swiper('.swiper-container', {
+  slidesPerView: 1,
+  pagination: {
+    el: '.swiper-pagination'
+  },
+  mousewheel: true,
+  keyboard: true
+})
+
+/* ScrollReveal: mostrar elementos quando der scroll na página */
+
+const scrollReveal = ScrollReveal({
+  origin: 'top',
+  distance: '30px',
+  duration: 700,
+  reset: true
+})
+
+scrollReveal.reveal(
+  `#home .image, #home .text,
+#about .image, #about .text,
+#services header, #services .card,
+#testimonials header, #testimonials .testimonials
+#contact .text, #contact .links,
+footer .brand, footer .social
+`,
+  { interval: 100 }
+)
+
+/* botão voltar para o topo */
+const backToTopButton = document.querySelector('.back-to-top')
+window.addEventListener('scroll', function () {
+  if (window.scrollY >= 560) {
+    backToTopButton.classList.add('show')
+  } else {
+    backToTopButton.classList.remove('show')
+  }
+})
